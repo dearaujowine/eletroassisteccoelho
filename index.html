@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta
+      name="description"
+      content="Conserto de máquinas de lavar roupas com qualidade e eficiência. Profissionais qualificados e atendimento ágil. Agende sua visita com a Assistec Coelho"
+    />
+    <meta
+      name="keywords"
+      content="Assistencia técnica, Brastemp, consul, electrolux, continental, bosch, müller, GE, Mabe, Wanke, LG, Samsung"
+    />
+    <title>Eletro Assistec Coelho</title>
+    <link rel="icon" href="favicon.ico" />
+    <style>
+      * {
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+      }
+      html {
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+      body {
+        background-repeat: no-repeat;
+        background-position: center top;
+        font: 14px 'Myriad Pro', Myriad, 'Liberation Sans', 'Nimbus Sans L',
+          'Helvetica Neue', Helvetica, Arial, sans-serif;
+        margin: 0;
+      }
+      @media (min-width: 650px) {
+        body {
+          background-image: url('img/screen-650.png');
+        }
+      }
+      @media (min-width: 1040px) {
+        body {
+          background-image: url('img/screen-1024.png');
+        }
+      }
+      footer {
+        color: #000;
+        line-height: 4em;
+        text-align: center;
+      }
+      img {
+        border: 0;
+        display: block;
+        margin: 0 auto;
+      }
+      ul a {
+        display: block;
+      }
+      main {
+        border: 0;
+        clip: rect(0, 0, 0, 0);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        width: 1px;
+      }
+      .nowrap {
+        white-space: nowrap;
+      }
+      .hidden-xs {
+        display: none;
+      }
+      @media (min-width: 650px) {
+        .hidden-xs {
+          display: inline-block;
+        }
+      }
+      .visible-sm {
+        display: none;
+      }
+      @media (min-width: 650px) and (max-width: 1039px) {
+        .visible-sm {
+          display: inline-block;
+        }
+        img.visible-sm {
+          display: block;
+        }
+      }
+      .visible-xs {
+        display: block;
+      }
+      @media (min-width: 650px) {
+        .visible-xs {
+          display: none;
+        }
+      }
+      .visible-lg {
+        display: none;
+      }
+      @media (min-width: 1040px) {
+        .visible-lg {
+          display: inline-block;
+        }
+        img.visible-lg {
+          display: block;
+        }
+      }
+      .text-center {
+        text-align: center;
+      }
+      .form-container {
+        background: #00a3da;
+      }
+      .btn {
+        background: #293e53;
+        border-radius: 0;
+        border-width: 0;
+        color: #fff;
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: bold;
+        margin: 10px 0 0;
+        padding: 5px 30px;
+      }
+      form {
+        display: block;
+        margin: 0 auto;
+        max-width: 600px;
+        overflow: hidden;
+        padding: 30px;
+      }
+      label {
+        color: #293e53;
+        display: block;
+        margin-bottom: 2px;
+      }
+      input,
+      textarea {
+        background: #fff;
+        border-radius: 0;
+        border-width: 0;
+        display: block;
+        padding: 10px;
+        width: 100%;
+      }
+      textarea {
+        height: 8em;
+      }
+      .form-control {
+        margin-bottom: 10px;
+        width: 100%;
+      }
+      @media (min-width: 650px) {
+        .form-control {
+          float: left;
+          width: 48%;
+        }
+        .form-control:nth-child(even) {
+          float: right;
+        }
+        .form-control.full-width {
+          width: 100%;
+        }
+      }
+      .jcarousel-wrapper {
+        display: none;
+        left: 50%;
+        position: absolute;
+      }
+      @media (min-width: 650px) {
+        .jcarousel-wrapper {
+          display: block;
+          margin-left: -250px;
+          top: 1050px;
+          width: 500px;
+        }
+      }
+      @media (min-width: 1040px) {
+        .jcarousel-wrapper {
+          margin-left: -450px;
+          top: 1680px;
+          width: 900px;
+        }
+      }
+      .jcarousel {
+        overflow: hidden;
+        position: relative;
+        width: 100%;
+      }
+      .jcarousel a {
+        background: #fff;
+        display: block;
+        margin: 0 5px;
+        padding-top: 75%;
+        position: relative;
+      }
+      .jcarousel img {
+        display: block;
+        height: auto !important;
+        left: 50%;
+        position: absolute;
+        top: 50%;
+        -moz-transform: translate(-50%, -50%);
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        width: 100%;
+      }
+      .jcarousel li {
+        width: 200px;
+        float: left;
+      }
+      .jcarousel ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        position: relative;
+        width: 20000em;
+      }
+      .jcarousel-control {
+        background: #293e53;
+        border-radius: 50%;
+        color: #fff;
+        height: 50px;
+        line-height: 40px;
+        margin-top: -25px;
+        position: absolute;
+        text-align: center;
+        text-decoration: none;
+        top: 50%;
+        width: 50px;
+      }
+      .jcarousel-control::before {
+        border-color: transparent;
+        border-style: solid;
+        border-width: 13px;
+        content: '';
+        font-size: 0;
+      }
+      .jcarousel-control-prev {
+        left: -55px;
+      }
+      .jcarousel-control-prev::before {
+        border-left-width: 0;
+        border-right-color: white;
+        margin-left: -5px;
+      }
+      .jcarousel-control-next {
+        right: -55px;
+      }
+      .jcarousel-control-next::before {
+        border-left-color: white;
+        border-right-width: 0;
+        margin-right: -5px;
+      }
+      .alert {
+        border-radius: 4px;
+        border: 1px solid transparent;
+        box-shadow: 3px 2px 7px rgba(0, 0, 0, 0.5);
+        font-size: 120%;
+        left: 50%;
+        margin: 15px;
+        padding: 20px 30px;
+        position: fixed;
+        top: 0;
+        transform: translate(-50%, 0);
+      }
+      .alert > *:first-child {
+        margin-top: 0;
+      }
+      .alert > *:last-child {
+        margin-bottom: 0;
+      }
+      .alert.success {
+        color: #3c763d;
+        background-color: #dff0d8;
+        border-color: #d6e9c6;
+      }
+      .alert.warning {
+        color: #8a6d3b;
+        background-color: #fcf8e3;
+        border-color: #faebcc;
+      }
+      .developer {
+        background: url('img/grupow.png') no-repeat center;
+        display: inline-block;
+        height: 11px;
+        overflow: hidden;
+        text-indent: -999em;
+        width: 69px;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header>
+        <h1>Eletro Assistec Coelho</h1>
+        <h2>
+          Procurando assistência técnica confiável para consertar sua máquina de lavar roupas, lava e seca?
+          A Assistec Coelho oferece serviços especializados em reparos de máquinas de lavar roupas, lava e seca e lavadoras de louça com profissionais qualificados e experientes.
+          Entre em contato conosco para agendar uma visita técnica e ter sua máquina funcionando como nova novamente!
+        </h2>
+      </header>
+      <ul>
+        <li>Brastemp</li>
+        <li>Consul</li>
+        <li>Electrolux</li>
+        <li>Continental</li>
+        <li>Bosch</li>
+        <li>M&uuml;ller</li>
+        <li>GE</li>
+        <li>Mabe</li>
+        <li>Wanke</li>
+        <li>LG</li>
+        <li>Samsung</li>
+      </ul>
+      <h3>Entre em contato solicite orçamento</h3>
+      <address>
+        <ul>
+          <li>47 9 9675-9575 (Tim)</li>
+        </ul>
+      </address>
+    </main>
+
+    <!-- XS -->
+    <img
+      usemap="#map-xs"
+      class="visible-xs"
+      src="img/screen.png"
+      width="650"
+      height="1218"
+      orgWidth="650"
+      orgHeight="1218"
+      alt=""
+      style="width: 100% !important; height: auto !important"
+    />
+    <!-- SM -->
+    <img
+      usemap="#map-sm"
+      class="visible-sm"
+      src="img/blank-650.png"
+      width="650"
+      height="1373"
+      orgWidth="650"
+      orgHeight="1373"
+      alt=""
+    />
+    <!-- LG -->
+    <img
+      usemap="#map-lg"
+      class="visible-lg"
+      src="img/blank-1024.png"
+      width="1024"
+      height="2155"
+      orgWidth="1024"
+      orgHeight="2155"
+      alt=""
+    />
+
+    <div class="form-container">
+      <form action="https://wa.me/5547996759575" method="GET" enctype="multipart/form-data">
+        <div class="form-control full-width">
+          <label for="mensagem">MENSAGEM</label>
+          <textarea name="text" id="mensagem" required></textarea>
+        </div>
+
+        <div class="text-center">
+          <button type="submit" class="btn">ENVIAR</button>
+        </div>
+      </form>
+    </div>
+
+    <footer>
+      <span class="nowrap">&copy;2016-2023 Eletro Assistec Coelho</span>
+      <!-- &nbsp; | &nbsp;
+      <span class="nowrap">
+        <span class="hidden-xs">Desenvolvimento</span>
+        <a href="http://www.grupow.com.br/" target="_blank" class="developer"
+          >GRUPOW</a
+        >
+      </span> -->
+    </footer>
+
+    <!-- XS -->
+    <map id="map-xs" name="map-xs">
+      <area
+        title="Solicite orçamento"
+        shape="rect"
+        coords="204,341,422,563"
+        target="_blank"
+        href="https://wa.me/5547996759575"
+      />
+      <area
+        title="Curta nossa página"
+        shape="rect"
+        coords="216,949,434,1021"
+        target="_blank"
+        href="https://www.facebook.com/Eletromaquinasdelavarroupascoelho/"
+      />
+    </map>
+    <!-- SM -->
+    <map id="map-sm" name="map-sm">
+      <area
+        title="Solicite orçamento"
+        shape="rect"
+        coords="229,545,409,732"
+        target="_blank"
+        href="https://wa.me/5547996759575"
+      />
+      <area
+        title="Curta nossa página"
+        shape="rect"
+        coords="40,553,220,603"
+        target="_blank"
+        href="https://www.facebook.com/Eletromaquinasdelavarroupascoelho/"
+      />
+      <area
+        title="Curta nossa página"
+        shape="rect"
+        coords="356,1172,505,1193"
+        target="_blank"
+        href="https://www.facebook.com/Eletromaquinasdelavarroupascoelho/"
+      />
+    </map>
+    <!-- LG -->
+    <map id="map-lg" name="map-lg">
+      <area
+        title="Solicite orçamento"
+        shape="rect"
+        coords="361,859,654,1154"
+        target="_blank"
+        href="https://wa.me/5547996759575"
+      />
+      <area
+        title="Curta nossa página"
+        shape="rect"
+        coords="62,874,345,946"
+        target="_blank"
+        href="https://www.facebook.com/Eletromaquinasdelavarroupascoelho/"
+      />
+      <area
+        title="Curta nossa página"
+        shape="rect"
+        coords="551,1830,798,1894"
+        target="_blank"
+        href="https://www.facebook.com/Eletromaquinasdelavarroupascoelho/"
+      />
+    </map>
+
+    <script
+      src="https://code.jquery.com/jquery-1.12.3.min.js"
+      integrity="sha256-aaODHAgvwQW1bFOGXMeX+pC4PZIPsvn2h1sArYOhgXQ="
+      crossorigin="anonymous"
+    ></script>
+    <script src="js/jquery.rwdImageMaps.min.js"></script>
+    <script src="js/jquery.jcarousel.min.js"></script>
+    <script src="js/jquery.maskedinput.min.js"></script>
+    <script src="vendor/fancybox/jquery.fancybox.pack.js"></script>
+    <link rel="stylesheet" href="vendor/fancybox/jquery.fancybox.css" />
+    <script>
+      $(document).ready(function (e) {
+        $('[type="tel"]')
+          .focusout(function () {
+            var p, e;
+            e = $(this);
+            e.unmask();
+            p = e.val().replace(/\D/g, '');
+            if (p.length > 10) {
+              e.mask('(99) 99999-999?9');
+            } else {
+              e.mask('(99) 9999-9999?9');
+            }
+          })
+          .trigger('focusout');
+
+        $('[rel="fancybox"]').fancybox();
+        $('img[usemap]').rwdImageMaps();
+
+        $('.jcarousel')
+          .on('jcarousel:reload jcarousel:create', function () {
+            var carousel = $(this),
+              width = carousel.innerWidth();
+            if (width >= 900) {
+              width = width / 5;
+            } else {
+              width = width / 4;
+            }
+            carousel.jcarousel('items').css('width', Math.ceil(width) + 'px');
+          })
+          .jcarousel({ wrap: 'circular' });
+
+        $('.jcarousel-control-prev').jcarouselControl({ target: '-=1' });
+        $('.jcarousel-control-next').jcarouselControl({ target: '+=1' });
+      });
+    </script>
+  </body>
+</html>
