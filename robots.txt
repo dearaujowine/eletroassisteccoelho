@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://eletroassisteccoelho.com.br/sitemap.xml
