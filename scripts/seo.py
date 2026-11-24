@@ -3,6 +3,7 @@
 import argparse
 import json
 import re
+import subprocess
 import sys
 from dataclasses import dataclass, field
 from datetime import date
@@ -186,6 +187,7 @@ def generate():
 
 
 def check():
+    subprocess.run([sys.executable, str(ROOT / 'scripts/assets.py'), 'check'], check=True)
     entries = pages()
     urls = [url for url, _ in entries]
     assert len(urls) == len(set(urls)), 'URL duplicada no sitemap'
@@ -226,10 +228,10 @@ def check():
             assert all(th.attrs.get('scope') in ('col', 'row', 'colgroup', 'rowgroup') for th in table.find('th'))
         for node in doc.find():
             assert int(node.attrs.get('tabindex', '-1')) <= 0, f'{name}: ordem artificial de foco'
-            for attr in ('href', 'src', 'action'):
-                if attr not in node.attrs:
-                    continue
-                url = urlsplit(urljoin(BASE + name, node.attrs[attr]))
+            targets = [node.attrs[attr] for attr in ('href', 'src', 'action') if attr in node.attrs]
+            targets += [part.split()[0] for part in node.attrs.get('srcset', '').split(',') if part.strip()]
+            for target_url in targets:
+                url = urlsplit(urljoin(BASE + name, target_url))
                 if url.scheme != 'https' or url.netloc != urlsplit(BASE).netloc:
                     continue
                 target = filename(url.geturl())
@@ -283,7 +285,7 @@ def check():
         if name not in reached:
             reached.add(name); todo.extend(edges[name] - reached)
     assert set(docs) - {'404.html'} <= reached, 'Página sem caminho de navegação'
-    css = ''.join(p.read_text() for p in (ROOT / 'css').glob('*.css')) + docs['index.html'].one('style').text()
+    css = ''.join(p.read_text() for p in (ROOT / 'css').glob('*.css')) + ''.join(style.text() for style in docs['index.html'].find('style'))
     for target in re.findall(r'url\([\'"]?([^\)\'\"]+)', css):
         assert (ROOT / target).exists(), f'Arquivo do CSS inexistente: {target}'
     for entry in sitemap():
@@ -335,7 +337,7 @@ def main():
         if args.command == 'generate': generate()
         elif args.command == 'check': check()
         else: indexnow(args.submit)
-    except (AssertionError, ValueError, OSError, HTTPError, URLError, ET.ParseError) as error:
+    except (AssertionError, ValueError, OSError, HTTPError, URLError, ET.ParseError, subprocess.CalledProcessError) as error:
         print(f'Erro: {error}', file=sys.stderr)
         return 1
     return 0

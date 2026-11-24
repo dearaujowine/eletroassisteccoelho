@@ -7,10 +7,7 @@
     <meta name="description" content="Assistência técnica especializada em máquinas de lavar, lava e seca e secadoras em Balneário Camboriú. Atendimento no local, visita e orçamento gratuitos.">
     <title>Assistência técnica especializada em Balneário Camboriú | Eletro Assistec Coelho</title>
     <link rel="icon" href="favicon.ico" />
-    <link rel="preload" as="image" href="img/screen.webp" type="image/webp" media="(max-width: 649px)" fetchpriority="high">
-    <link rel="preload" as="image" href="img/screen-650.webp" type="image/webp" media="(min-width: 650px) and (max-width: 1039px)" fetchpriority="high">
-    <link rel="preload" as="image" href="img/screen-1024.webp" type="image/webp" media="(min-width: 1040px)" fetchpriority="high">
-    <script src="js/mapas-responsivos.js" defer></script>
+    <script src="assets/mapas-responsivos.56e3eb635590.js" defer></script>
     <link rel="canonical" href="https://eletroassisteccoelho.com.br/">
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="pt_BR" />
@@ -142,17 +139,23 @@
           'Helvetica Neue', Helvetica, Arial, sans-serif;
         margin: 0;
       }
+      .home-art { position: relative; }
+      .art-heading, .art-body { display: block; }
+      .art-image { width: 100%; height: auto; }
+      .art-body { display: none; }
+      .image-map { position: absolute; top: 0; left: 50%; transform: translateX(-50%); }
+      .image-map.visible-xs { width: 100%; height: 100%; }
       @media (min-width: 650px) {
-        body {
-          background-image: url('img/screen-650.png');
-          background-image: image-set(url('img/screen-650.webp') type('image/webp'), url('img/screen-650.png') type('image/png'));
-        }
+        .home-art { height: 1373px; overflow: hidden; }
+        .art-body { display: block; }
+        .art-image { object-fit: none; object-position: center top; }
+        .art-heading .art-image { height: 240px; }
+        .art-body .art-image { height: 1132px; }
       }
       @media (min-width: 1040px) {
-        body {
-          background-image: url('img/screen-1024.png');
-          background-image: image-set(url('img/screen-1024.webp') type('image/webp'), url('img/screen-1024.png') type('image/png'));
-        }
+        .home-art { height: 2155px; }
+        .art-heading .art-image { height: 360px; }
+        .art-body .art-image { height: 1794px; }
       }
       footer {
         color: #000;
@@ -278,7 +281,7 @@
       .home-content-links a { color: #006d92; text-underline-offset: 3px; }
       .home-content-links a:focus-visible { outline: 2px solid #293e53; outline-offset: 4px; }
     </style>
-    <link rel="stylesheet" href="css/acessibilidade.css">
+    <style id="acessibilidade-inline">.visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); clip-path: inset(50%); white-space: nowrap; border: 0; } .home-page, .content-page { -webkit-text-size-adjust: 100%; } .content-page { font-size: 1rem; } .home-page :focus-visible, .content-page :focus-visible { outline: 3px solid #102c3b; outline-offset: 3px; box-shadow: 0 0 0 3px #fff; } .home-page main:focus-visible, .home-page #contato:focus-visible, .content-page main:focus-visible { outline-offset: -3px; box-shadow: none; } .skip-navigation { position: absolute; top: 0; left: 0; z-index: 10; } .home-page .skip-link, .content-page .skip-link { position: fixed; top: 8px; left: 8px; z-index: 10; max-width: calc(100% - 16px); transform: translateY(calc(-100% - 20px)); padding: 12px 16px; background: #fff; color: #102c3b; font: bold 1rem/1.5 Arial, sans-serif; overflow-wrap: anywhere; } .home-page .skip-link:focus, .content-page .skip-link:focus { transform: none; top: 8px; left: 8px; } .home-page .form-container { color: #102c3b; } .home-page form { overflow: visible; } .home-page form::after { content: ''; display: table; clear: both; } .home-page label { color: #102c3b; font-size: 1rem; line-height: 1.5; } .home-page .form-help { margin: 8px 0 12px; font-size: 1rem; line-height: 1.6; } .home-page textarea { color: #102c3b; font: 1rem/1.5 Arial, sans-serif; min-height: 8em; resize: vertical; } .home-page .btn { font-size: 1rem; min-width: 44px; min-height: 44px; line-height: 1.5; } .home-page .home-contact-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 20px; max-width: 1024px; padding: 8px 20px 16px; margin: 0 auto; line-height: 1.5; } .home-page .home-contact-links a { color: #006d92; text-underline-offset: 3px; } .home-page .home-content-links a, .home-page .home-contact-links a { display: inline-flex; align-items: center; min-height: 44px; font-size: 1rem; } .home-page footer .nowrap { white-space: normal; } .home-page footer { overflow-wrap: anywhere; } .content-page .content-nav a, .content-page .content-footer a, .content-page .contact-actions a { display: inline-flex; align-items: center; min-height: 44px; } .content-page .content-nav a, .content-page .content-footer { font-size: 1rem; } .content-page .content-nav a { line-height: 1.5; } .content-page .breadcrumb a { display: inline-block; min-height: 24px; } .content-page h1 { font-size: clamp(1.75rem, 1.2rem + 2vw, 2.375rem); } .content-page h2 { font-size: 1.5625rem; } .content-page h3, .content-page .intro { font-size: 1.1875rem; } .content-page .article-label, .content-page .source-note, .content-page .breadcrumb { font-size: .875rem; } .content-page table { font-size: .9375rem; } .content-page .contact-section, .content-page .contact-actions a { color: #102c3b; } .content-page .contact-actions .contact-button { color: #fff; } .content-page p, .content-page li, .content-page h1, .content-page h2, .content-page h3, .content-page td, .content-page th { overflow-wrap: anywhere; } .content-page .table-wrap { max-width: 100%; } @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto !important; } .home-page *, .content-page * { animation: none !important; transition: none !important; scroll-behavior: auto !important; } } @media (forced-colors: active) { .home-page :focus-visible, .content-page :focus-visible { outline: 3px solid Highlight; box-shadow: none; } .home-page .btn, .content-page .contact-button { border: 2px solid ButtonText; } .home-page textarea { border: 1px solid CanvasText; } .home-page .skip-link, .content-page .skip-link { border: 2px solid CanvasText; } } @media print { .content-page .skip-link, .content-page .content-nav, .content-page .article-toc, .content-page .related { display: none; } .content-page .content-width { width: 100%; } .content-page .table-wrap { overflow: visible; } .content-page .contact-section, .content-page .contact-actions .contact-button { color: #000; background: #fff; } .content-page h2, .content-page h3, .content-page caption { break-after: avoid; } .content-page tr { break-inside: avoid; } }</style>
 </head>
   <body class="home-page">
     <nav class="skip-navigation" aria-label="Atalhos de navegação">
@@ -311,23 +314,34 @@
       </address>
     </div>
 
-    <!-- XS -->
-    <picture class="visible-xs">
-      <source srcset="img/screen.webp" type="image/webp">
-      <img
-        usemap="#map-xs"
-        class="visible-xs"
-        src="img/screen.png"
-        width="649"
-        height="1217"
-        data-map-width="650"
-        data-map-height="1218"
-        fetchpriority="high"
-        loading="eager"
-        alt="Eletro Assistec Coelho: assistência técnica especializada para máquinas de lavar, lava e seca e secadoras. Links para orçamento e Facebook."
-        style="width: 100% !important; height: auto !important"
-      />
-    </picture>
+    <div class="home-art">
+      <picture class="art-heading">
+        <source media="(min-width: 1040px)" srcset="assets/home-desktop-top.c4a379279295.webp" type="image/webp">
+        <source media="(min-width: 1040px)" srcset="assets/home-desktop-top.cd706bb27ec0.png">
+        <source media="(min-width: 650px)" srcset="assets/home-tablet-top.7684876d3395.webp" type="image/webp">
+        <source media="(min-width: 650px)" srcset="assets/home-tablet-top.653bcdf14107.png">
+        <source srcset="assets/home-mobile.8f227007810a.webp" type="image/webp">
+        <img class="art-image" src="assets/home-mobile.9faed41ad6e2.png" width="649" height="1217" fetchpriority="high" loading="eager" alt="">
+      </picture>
+      <picture class="art-body">
+        <source media="(min-width: 1040px)" srcset="assets/home-desktop-bottom.d90925612bfa.webp" type="image/webp">
+        <source media="(min-width: 1040px)" srcset="assets/home-desktop-bottom.4bde0c7f4065.png">
+        <source media="(min-width: 650px)" srcset="assets/home-tablet-bottom.078bbad83c64.webp" type="image/webp">
+        <source media="(min-width: 650px)" srcset="assets/home-tablet-bottom.4c1a04ddcc85.png">
+        <img class="art-image" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" width="1" height="1" fetchpriority="high" loading="eager" alt="">
+      </picture>
+
+    <!-- Mapas das artes: coordenadas e destinos originais. -->
+    <img
+      usemap="#map-xs"
+      class="image-map visible-xs"
+      src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+      width="649"
+      height="1217"
+      data-map-width="650"
+      data-map-height="1218"
+      alt="Eletro Assistec Coelho: assistência técnica especializada para máquinas de lavar, lava e seca e secadoras. Links para orçamento e Facebook."
+    />
     <map id="map-xs" name="map-xs">
       <area
         alt="Solicitar orçamento pelo WhatsApp (abre em nova aba)"
@@ -352,8 +366,8 @@
     <!-- SM -->
     <img
       usemap="#map-sm"
-      class="visible-sm"
-      src="img/blank-650.png"
+      class="image-map visible-sm"
+      src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
       width="650"
       height="1373"
       alt="Eletro Assistec Coelho: assistência técnica especializada para máquinas de lavar, lava e seca e secadoras. Links para orçamento e Facebook."
@@ -391,8 +405,8 @@
     <!-- LG -->
     <img
       usemap="#map-lg"
-      class="visible-lg"
-      src="img/blank-1024.png"
+      class="image-map visible-lg"
+      src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
       width="1024"
       height="2155"
       alt="Eletro Assistec Coelho: assistência técnica especializada para máquinas de lavar, lava e seca e secadoras. Links para orçamento e Facebook."
@@ -427,6 +441,8 @@
       />
     </map>
 
+
+    </div>
 
     <section class="form-container" id="contato" tabindex="-1" aria-labelledby="contato-titulo">
       <h2 class="visually-hidden" id="contato-titulo">Solicitar atendimento pelo WhatsApp</h2>

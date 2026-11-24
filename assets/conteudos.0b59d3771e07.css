@@ -1,0 +1,74 @@
+/* Estilos isolados das páginas internas; não alteram a arte ou os mapas da home. */
+.content-page {
+  margin: 0;
+  color: #293e53;
+  background: #fff;
+  font: 16px/1.75 'Myriad Pro', Myriad, 'Liberation Sans', 'Nimbus Sans L', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+.content-page *, .content-page *::before, .content-page *::after { box-sizing: border-box; }
+.content-page a { color: #006d92; text-underline-offset: 3px; }
+.content-page a:hover { text-decoration-thickness: 2px; }
+.content-page :focus-visible { outline: 3px solid #b35300; outline-offset: 4px; }
+.content-page .content-width { width: min(860px, calc(100% - 40px)); margin: 0 auto; }
+.content-page .content-header { padding: 24px 0 0; border-bottom: 5px solid #00a3da; }
+.content-page .brand { display: block; width: 158px; margin: 0 auto 22px; }
+.content-page .brand-window { display: block; position: relative; width: 158px; height: 68px; overflow: hidden; }
+.content-page .brand-window img { position: absolute; max-width: none; width: 600px; height: 220px; left: -223px; top: -77px; }
+.content-page .content-nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 4px 22px; padding-bottom: 18px; }
+.content-page .content-nav a { font-size: 14px; color: #006d92; }
+.content-page .content-nav a[aria-current="page"] { font-weight: bold; }
+.content-page .skip-link { position: absolute; top: -100px; left: 12px; background: #fff; padding: 8px 12px; }
+.content-page .skip-link:focus { top: 12px; z-index: 1; }
+.content-page .breadcrumb { padding: 20px 0 0; font-size: 14px; }
+.content-page .breadcrumb ol { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; padding: 0; margin: 0; }
+.content-page .breadcrumb li + li::before { content: '/'; padding-right: 8px; }
+.content-page main { padding: 34px 0 52px; }
+.content-page h1, .content-page h2, .content-page h3 { line-height: 1.25; }
+.content-page h1 { font-size: clamp(28px, 4vw, 38px); margin: 0 0 24px; }
+.content-page h2 { font-size: 25px; margin: 38px 0 14px; }
+.content-page h3 { font-size: 19px; margin: 24px 0 10px; }
+.content-page p { margin: 0 0 18px; }
+.content-page .article-label { color: #006d92; font-size: 14px; letter-spacing: .05em; text-transform: uppercase; margin-bottom: 12px; }
+.content-page .intro { font-size: 19px; line-height: 1.6; }
+.content-page .article-toc { border-left: 4px solid #00a3da; padding: 12px 20px; background: #f4f7f8; margin: 28px 0; }
+.content-page .article-toc p { margin-bottom: 8px; font-weight: bold; }
+.content-page .article-toc ul { margin: 0; padding-left: 20px; }
+.content-page li + li { margin-top: 8px; }
+.content-page .breadcrumb li + li { margin-top: 0; }
+.content-page .article-toc li + li { margin-top: 4px; }
+.content-page section[id] { scroll-margin-top: 20px; }
+.content-page ul, .content-page ol { padding-left: 24px; }
+.content-page .table-wrap { overflow-x: auto; margin: 20px 0; }
+.content-page table { width: 100%; border-collapse: collapse; font-size: 15px; }
+.content-page caption { text-align: left; font-weight: bold; padding-bottom: 10px; }
+.content-page th, .content-page td { text-align: left; vertical-align: top; border: 1px solid #d2dbe0; padding: 12px; }
+.content-page th { background: #edf4f7; }
+.content-page .example { border-left: 3px solid #00a3da; background: #f4f7f8; padding: 18px 22px; margin: 22px 0; }
+.content-page .example p:last-child { margin-bottom: 0; }
+.content-page .contact-section { background: #00a3da; color: #143c51; padding: 36px 0; }
+.content-page .contact-section h2 { margin-top: 0; }
+.content-page .contact-section p { max-width: 700px; }
+.content-page .contact-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 24px; }
+.content-page .contact-actions a { color: #143c51; font-weight: bold; }
+.content-page .contact-actions .contact-button { display: inline-block; background: #293e53; color: #fff; font-size: 16px; font-weight: bold; text-decoration: none; padding: 10px 24px; min-height: 44px; }
+.content-page .contact-button:hover { background: #1b2e40; }
+.content-page .source-note { font-size: 14px; border-top: 1px solid #d2dbe0; padding-top: 18px; margin-top: 30px; }
+.content-page .related { border-top: 1px solid #d2dbe0; margin-top: 36px; }
+.content-page .related h2 { font-size: 22px; margin-top: 24px; }
+.content-page .topic-list { list-style: none; padding: 0; }
+.content-page .topic-list li { padding: 20px 0; border-bottom: 1px solid #d2dbe0; }
+.content-page .topic-list li + li { margin-top: 0; }
+.content-page .topic-list h3 { margin: 0 0 8px; }
+.content-page .topic-list p { margin: 0; }
+/* .content-page .content-footer { padding: 24px 20px; text-align: center; font-size: 14px; } */
+.content-page .content-footer p { margin: 0 0 8px; }
+.content-page .content-footer a { margin: 0 8px; }
+@media (max-width: 500px) {
+  .content-page .content-width { width: calc(100% - 32px); }
+  .content-page .content-nav { gap: 8px 16px; }
+  .content-page main { padding-top: 24px; }
+  .content-page .intro { font-size: 18px; }
+  .content-page th, .content-page td { padding: 9px; overflow-wrap: anywhere; }
+}
+.content-page footer.content-footer { color: #000; line-height: 3em; text-align: center; }
+.content-page footer.content-footer .nowrap { font-size: 0.9em; }

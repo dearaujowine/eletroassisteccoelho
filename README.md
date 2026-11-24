@@ -6,14 +6,14 @@ Site estático de assistência técnica para máquinas de lavar convencionais, l
 
 `index.html` mantém as artes, dimensões, coordenadas dos mapas e identidade visual. Os acréscimos incluem metadados de SEO, dados estruturados, links de conteúdo e melhorias no acesso ao contato. O formulário conserva o envio GET para o WhatsApp e recebeu instruções, contraste e controles maiores. As áreas clicáveis têm descrições acessíveis.
 
-As imagens `img/screen.png`, `img/screen-650.png` e `img/screen-1024.png` são as fontes das artes. Todas possuem versões WebP sem perda de pixels: o mobile usa `picture`, e os fundos de tablet e desktop usam `image-set`, com fallback PNG. Os PNGs originais e as imagens transparentes dos mapas foram preservados. As cópias com sufixos de backup não são referenciadas pelo HTML.
+As imagens `img/screen.png`, `img/screen-650.png` e `img/screen-1024.png` continuam sendo as fontes das artes. O navegador escolhe as variantes WebP ou PNG de cada tamanho usando `picture`. Tablet e desktop exibem duas faixas contíguas da arte como imagens reais, sem fundo no `body`: isso permite medir LCP e mantém os mesmos pixels e recorte central. O mobile usa a arte inteira e não baixa as faixas maiores. Os mapas usam imagens transparentes embutidas no HTML, sem requisições adicionais. Os PNGs originais e backups foram preservados.
 
-Depois de editar as artes no Canva, atualize as variantes WebP; caso contrário, navegadores modernos continuarão mostrando a arte anterior. Mantenha o conteúdo dos três tamanhos consistente com os serviços atuais. Ao mudar posições ou dimensões, confira as coordenadas dos mapas clicáveis.
+Depois de editar as artes no Canva, gere os recursos abaixo. Mantenha o conteúdo dos três tamanhos consistente com os serviços atuais. Ao mudar posições ou dimensões, ajuste também as dimensões de exibição e confira as coordenadas dos mapas clicáveis. Os tamanhos atuais das fontes são 649×1217, 1622×1372 e 2560×2154 pixels.
 
 ```sh
-cwebp -quiet -lossless -exact -z 9 img/screen.png -o img/screen.webp
-cwebp -quiet -lossless -exact -z 9 img/screen-650.png -o img/screen-650.webp
-cwebp -quiet -lossless -exact -z 9 img/screen-1024.png -o img/screen-1024.webp
+python3 scripts/assets.py generate
+python3 scripts/seo.py generate
+python3 scripts/seo.py check
 ```
 
 `js/mapas-responsivos.js` ajusta os oito links das artes ao tamanho exibido, sem jQuery. O arquivo é carregado com `defer` e acompanha carregamento, redimensionamento e troca de breakpoint. Na imagem mobile, `width`/`height` indicam as dimensões reais do arquivo e `data-map-width`/`data-map-height` conservam a base das coordenadas originais. Os plugins antigos permanecem no repositório, mas não são carregados pelo site.
@@ -37,7 +37,7 @@ Os textos estão diretamente no HTML. Os artigos incluem sumário, links relacio
 
 `css/conteudos.css` usa seletores `.content-page`, isolados nas páginas internas. A home mantém os estilos do seu rodapé no próprio HTML e não baixa a folha de estilos dos artigos. Nenhuma biblioteca JavaScript é necessária para os conteúdos.
 
-`css/acessibilidade.css` é carregado por último nas doze páginas HTML, incluindo a página 404. Reúne os ajustes de foco, contraste, tamanho dos controles e preferências de exibição. As mudanças são feitas no HTML e no CSS, sem uma nova dependência JavaScript.
+`css/acessibilidade.css` reúne os ajustes de foco, contraste, tamanho dos controles e preferências de exibição. Na home, seu conteúdo é incorporado automaticamente ao HTML para eliminar a requisição bloqueante; nas páginas internas e na 404, é carregado por último por uma URL versionada. Edite o arquivo fonte e execute `scripts/assets.py generate`, sem editar as cópias geradas.
 
 ## Dados da empresa
 
@@ -75,7 +75,7 @@ A voz dos textos é profissional, direta e próxima: explica como a equipe pode 
 
 ## Manutenção e SEO
 
-O site não precisa de build. Edite os HTMLs diretamente. Ao mudar telefone ou dados da empresa, atualize também os metadados e os blocos JSON-LD de todas as páginas.
+O site publicado continua estático, sem código de servidor. Edite os HTMLs diretamente. Alterações nas artes, CSS ou JavaScript exigem regenerar os recursos com `scripts/assets.py generate` antes de publicar. Ao mudar telefone ou dados da empresa, atualize também os metadados e os blocos JSON-LD de todas as páginas.
 
 O sitemap contém onze URLs: a home, a apresentação dos serviços, o índice de dúvidas e oito conteúdos. Ao adicionar páginas, inclua links de navegação e atualize `sitemap.xml`. O `robots.txt` permite o rastreamento e aponta para o sitemap. Depois da publicação, confira a versão entregue pela Cloudflare e envie o sitemap aos mecanismos de busca.
 
@@ -106,7 +106,7 @@ python3 scripts/seo.py generate
 python3 scripts/seo.py check
 ```
 
-O gerador não altera os HTMLs, o sitemap ou as datas. O verificador confere navegação, âncoras, referências locais, JSON-LD, metadados, arquivos usados pelo CSS, permissões do robots e sincronização das versões textuais. Também verifica idioma, zoom permitido, destinos dos atalhos, hierarquia dos títulos, rótulos, descrições dos mapas e referências ARIA. Ele não sobe um servidor nem publica arquivos.
+O gerador de SEO não altera os HTMLs, o sitemap ou as datas. O verificador confere navegação, âncoras, referências locais (incluindo `srcset`), JSON-LD, metadados, arquivos usados pelo CSS, permissões do robots e sincronização das versões textuais. Também verifica os recursos versionados, o CSS inline, idioma, zoom permitido, destinos dos atalhos, hierarquia dos títulos, rótulos, descrições dos mapas e referências ARIA. Ele não sobe um servidor nem publica arquivos.
 
 O `lastmod` do sitemap corresponde à alteração relevante do conteúdo ou dos metadados, não à data de cada execução. Atualize apenas a entrada da página efetivamente alterada. As onze entradas refletem as alterações de conteúdo e dados estruturados em 2026-11-23.
 
@@ -177,6 +177,24 @@ Pendências externas identificadas no relatório:
 - **Cloudflare:** o aviso de 10 KiB de JavaScript legado vem do beacon de Web Analytics, ausente do código local. A Cloudflare documenta sua [injeção automática](https://developers.cloudflare.com/speed/observatory/rum-beacon/); eventual desativação é uma decisão sobre a coleta de métricas no painel, não uma correção neste HTML.
 
 Validação local: conferência visual em Chrome nos tamanhos desktop e mobile, coordenadas/destinos dos oito links e formulário preservados, teste do redimensionamento dos mapas com e sem `ResizeObserver`, sintaxe JavaScript e `scripts/seo.py check`. A prévia por arquivo não mede a rede nem o cache da hospedagem. Publicar as alterações e executar uma nova análise mobile e desktop para obter as notas posteriores; não há garantia de nota 100 ou de posicionamento nos buscadores.
+
+### Correções de carregamento em 2026-11-24
+
+- A arte de desktop passou de fundo do `body` a duas imagens contíguas. O Chrome registrou um evento LCP da imagem `home-desktop-bottom` na prévia local, corrigindo a ausência de elemento elegível observada anteriormente. Ainda é necessário publicar e medir no PageSpeed; o tempo local por arquivo não representa desempenho de rede.
+- O navegador seleciona somente a arte do tamanho ativo. Os testes em mobile e tablet confirmaram `currentSrc` correspondente ao tamanho e coordenadas dos mapas preservadas. A conferência visual também cobriu desktop.
+- As faixas WebP recompostas têm zero pixels diferentes dos PNGs originais. Total das artes: 48.170 bytes no mobile, 174.840 no tablet e 306.390 no desktop. O desktop deixa de carregar também os 48.170 bytes da arte mobile oculta.
+- A home não tem folhas de estilo externas. O CSS de acessibilidade é gerado no HTML, mantendo os estilos disponíveis desde a primeira pintura e sem duplicar a manutenção manual.
+- CSS, JavaScript e artes usados pelo site recebem nomes com hash de conteúdo em `assets/`. Uma alteração gera outra URL, evitando reaproveitar a versão anterior do recurso. Uma geração repetida sem alterações mantém os mesmos nomes.
+
+`scripts/assets.py generate` requer Python 3, ImageMagick (`magick`) e libwebp (`cwebp`) na máquina de edição. O comando cria as versões PNG/WebP, atualiza os caminhos nas doze páginas e incorpora o CSS da home. `assets/manifest.json` relaciona fontes e saídas. `scripts/assets.py check` detecta fontes alteradas, arquivos modificados e referências/estilos inline fora de sincronia. O `scripts/seo.py check` já executa essa conferência. Publique os HTMLs e a pasta `assets/` juntos; não edite os arquivos com hash manualmente. Versões antigas são mantidas para páginas ainda em cache.
+
+### Regra de cache preparada para Cloudflare
+
+`config/cloudflare-cache-rule.json` contém a configuração de uma regra para `http_request_cache_settings`, conforme a [documentação da Cloudflare](https://developers.cloudflare.com/cache/how-to/cache-rules/settings/). O arquivo é uma configuração para aplicar no painel/API, não é consumido automaticamente pelo GitHub Pages e não foi enviado à conta.
+
+Após publicar os recursos, adicionar uma Cache Rule para o domínio `eletroassisteccoelho.com.br`, caminho começando com `/assets/` e extensões `css`, `js`, `png` ou `webp`: permitir cache, Browser TTL de 30 dias e Edge TTL de 30 dias, sem armazenamento de respostas 400–599 no edge. O JSON contém a expressão e os valores exatos. Inserir a regra preservando as regras existentes, em vez de substituir o ruleset inteiro. HTML, robots, sitemap e o manifesto não entram nessa regra. Verificar a precedência de outras regras no painel.
+
+O cache longo e os cabeçalhos de segurança continuam dependendo da configuração da hospedagem/Cloudflare. Os identificadores e o funcionamento da tag Google Ads foram mantidos.
 
 ## Acessibilidade
 

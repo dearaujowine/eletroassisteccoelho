@@ -1,0 +1,25 @@
+{
+  "inputs": {
+    "img/screen.png": "9faed41ad6e288fc17ca15037e957d18f07589d463c7d4c91d8943b393db5d13",
+    "img/screen-650.png": "39910996886a274120d40fe2b6eec20ca06af2c0b06242ba4a7f1ff8d8765a0d",
+    "img/screen-1024.png": "8a6cb7591b9647d6bd91e2e5aff370d388e2c5a1e961510174965c3ddb36f8fe",
+    "css/acessibilidade.css": "8e1e148d7e1fa888426804b7a53f115b339fe53153eac5e592f8ee1952239482",
+    "css/conteudos.css": "0b59d3771e0751913f59df75740f8af61e5f8e314cbe7276f005c7fedaba7737",
+    "js/mapas-responsivos.js": "56e3eb6355901cd0ef3a8abb54f4cac230a34fe4c4b0dc58a66c2e97ec73bbc4"
+  },
+  "resources": {
+    "assets/home-mobile.png": "assets/home-mobile.9faed41ad6e2.png",
+    "assets/home-mobile.webp": "assets/home-mobile.8f227007810a.webp",
+    "assets/home-tablet-top.png": "assets/home-tablet-top.653bcdf14107.png",
+    "assets/home-tablet-top.webp": "assets/home-tablet-top.7684876d3395.webp",
+    "assets/home-tablet-bottom.png": "assets/home-tablet-bottom.4c1a04ddcc85.png",
+    "assets/home-tablet-bottom.webp": "assets/home-tablet-bottom.078bbad83c64.webp",
+    "assets/home-desktop-top.png": "assets/home-desktop-top.cd706bb27ec0.png",
+    "assets/home-desktop-top.webp": "assets/home-desktop-top.c4a379279295.webp",
+    "assets/home-desktop-bottom.png": "assets/home-desktop-bottom.4bde0c7f4065.png",
+    "assets/home-desktop-bottom.webp": "assets/home-desktop-bottom.d90925612bfa.webp",
+    "assets/acessibilidade.css": "assets/acessibilidade.8e1e148d7e1f.css",
+    "assets/conteudos.css": "assets/conteudos.0b59d3771e07.css",
+    "assets/mapas-responsivos.js": "assets/mapas-responsivos.56e3eb635590.js"
+  }
+}

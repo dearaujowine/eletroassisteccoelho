@@ -1,0 +1,23 @@
+{
+  "description": "Eletro Assistec Coelho - recursos versionados por 30 dias",
+  "expression": "(http.host eq \"eletroassisteccoelho.com.br\" and starts_with(http.request.uri.path, \"/assets/\") and http.request.uri.path.extension in {\"css\" \"js\" \"png\" \"webp\"})",
+  "action": "set_cache_settings",
+  "action_parameters": {
+    "cache": true,
+    "browser_ttl": {
+      "mode": "override_origin",
+      "default": 2592000
+    },
+    "edge_ttl": {
+      "mode": "override_origin",
+      "default": 2592000,
+      "status_code_ttl": [
+        {
+          "status_code_range": { "from": 400, "to": 599 },
+          "value": -1
+        }
+      ]
+    }
+  },
+  "enabled": true
+}
