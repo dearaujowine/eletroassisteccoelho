@@ -263,7 +263,7 @@ def check():
         canonical = BASE + ('' if name == 'index.html' else name)
         assert doc.one('link', rel='canonical').attrs['href'] == canonical
         for prop, value in [('og:url', canonical), ('og:title', title), ('og:description', description)]:
-            assert doc.one('meta', property=prop).attrs['content'] == value
+            assert doc.one('meta', property=prop).attrs['content'] == value, f'{name}: {prop} diverge do título, descrição ou URL canônica'
         data = graph(doc)
         known_ids = {n['@id'] for n in data}
         def refs(value):
@@ -275,8 +275,8 @@ def check():
                 for child in value: refs(child)
         refs(data)
         page = next(n for n in data if n['@type'] in ('WebPage', 'CollectionPage'))
-        assert page['url'] == canonical and page['name'] == title
-        assert page['description'] == description
+        assert page['url'] == canonical and page['name'] == title, f'{name}: título ou URL do JSON-LD divergente'
+        assert page['description'] == description, f'{name}: descrição do JSON-LD divergente'
     reached, todo = set(), ['index.html']
     while todo:
         name = todo.pop()

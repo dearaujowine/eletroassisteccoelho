@@ -1,17 +1,3 @@
-/* A página inicial mantém o CSS original. Só estes links do rodapé são novos. */
-.home-content-links {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: .75rem 1.5rem;
-  max-width: 1024px;
-  margin: 0 auto;
-  padding: 0 20px 24px;
-  line-height: 1.6;
-}
-.home-content-links a { color: #006d92; text-underline-offset: 3px; }
-.home-content-links a:focus-visible { outline: 2px solid #293e53; outline-offset: 4px; }
-
 /* Estilos isolados das páginas internas; não alteram a arte ou os mapas da home. */
 .content-page {
   margin: 0;

@@ -47,10 +47,10 @@
   left: 8px;
 }
 
-.home-page .form-container { color: #fff; }
+.home-page .form-container { color: #102c3b; }
 .home-page form { overflow: visible; }
 .home-page form::after { content: ''; display: table; clear: both; }
-.home-page label { color: #fff; font-size: 1rem; line-height: 1.5; }
+.home-page label { color: #102c3b; font-size: 1rem; line-height: 1.5; }
 .home-page .form-help { margin: 8px 0 12px; font-size: 1rem; line-height: 1.6; }
 .home-page textarea {
   color: #102c3b;

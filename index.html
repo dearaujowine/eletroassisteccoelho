@@ -7,8 +7,11 @@
     <meta name="description" content="Assistência técnica especializada em máquinas de lavar, lava e seca e secadoras em Balneário Camboriú. Atendimento no local, visita e orçamento gratuitos.">
     <title>Assistência técnica especializada em Balneário Camboriú | Eletro Assistec Coelho</title>
     <link rel="icon" href="favicon.ico" />
+    <link rel="preload" as="image" href="img/screen.webp" type="image/webp" media="(max-width: 649px)" fetchpriority="high">
+    <link rel="preload" as="image" href="img/screen-650.webp" type="image/webp" media="(min-width: 650px) and (max-width: 1039px)" fetchpriority="high">
+    <link rel="preload" as="image" href="img/screen-1024.webp" type="image/webp" media="(min-width: 1040px)" fetchpriority="high">
+    <script src="js/mapas-responsivos.js" defer></script>
     <link rel="canonical" href="https://eletroassisteccoelho.com.br/">
-    <link rel="stylesheet" href="css/conteudos.css" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="pt_BR" />
     <meta property="og:site_name" content="Eletro Assistec Coelho" />
@@ -262,124 +265,18 @@
           width: 100%;
         }
       }
-      .jcarousel-wrapper {
-        display: none;
-        left: 50%;
-        position: absolute;
+      .home-content-links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: .75rem 1.5rem;
+        max-width: 1024px;
+        margin: 0 auto;
+        padding: 0 20px 24px;
+        line-height: 1.6;
       }
-      @media (min-width: 650px) {
-        .jcarousel-wrapper {
-          display: block;
-          margin-left: -250px;
-          top: 1050px;
-          width: 500px;
-        }
-      }
-      @media (min-width: 1040px) {
-        .jcarousel-wrapper {
-          margin-left: -450px;
-          top: 1680px;
-          width: 900px;
-        }
-      }
-      .jcarousel {
-        overflow: hidden;
-        position: relative;
-        width: 100%;
-      }
-      .jcarousel a {
-        background: #fff;
-        display: block;
-        margin: 0 5px;
-        padding-top: 75%;
-        position: relative;
-      }
-      .jcarousel img {
-        display: block;
-        height: auto !important;
-        left: 50%;
-        position: absolute;
-        top: 50%;
-        -moz-transform: translate(-50%, -50%);
-        -webkit-transform: translate(-50%, -50%);
-        transform: translate(-50%, -50%);
-        width: 100%;
-      }
-      .jcarousel li {
-        width: 200px;
-        float: left;
-      }
-      .jcarousel ul {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        position: relative;
-        width: 20000em;
-      }
-      .jcarousel-control {
-        background: #293e53;
-        border-radius: 50%;
-        color: #fff;
-        height: 50px;
-        line-height: 40px;
-        margin-top: -25px;
-        position: absolute;
-        text-align: center;
-        text-decoration: none;
-        top: 50%;
-        width: 50px;
-      }
-      .jcarousel-control::before {
-        border-color: transparent;
-        border-style: solid;
-        border-width: 13px;
-        content: '';
-        font-size: 0;
-      }
-      .jcarousel-control-prev {
-        left: -55px;
-      }
-      .jcarousel-control-prev::before {
-        border-left-width: 0;
-        border-right-color: white;
-        margin-left: -5px;
-      }
-      .jcarousel-control-next {
-        right: -55px;
-      }
-      .jcarousel-control-next::before {
-        border-left-color: white;
-        border-right-width: 0;
-        margin-right: -5px;
-      }
-      .alert {
-        border-radius: 4px;
-        border: 1px solid transparent;
-        box-shadow: 3px 2px 7px rgba(0, 0, 0, 0.5);
-        font-size: 120%;
-        left: 50%;
-        margin: 15px;
-        padding: 20px 30px;
-        position: fixed;
-        top: 0;
-        transform: translate(-50%, 0);
-      }
-      .alert > *:first-child {
-        margin-top: 0;
-      }
-      .alert > *:last-child {
-        margin-bottom: 0;
-      }
-      .alert.success {
-        color: #3c763d;
-        background-color: #dff0d8;
-        border-color: #d6e9c6;
-      }
-      .alert.warning {
-        color: #8a6d3b;
-        background-color: #fcf8e3;
-        border-color: #faebcc;
-      }
+      .home-content-links a { color: #006d92; text-underline-offset: 3px; }
+      .home-content-links a:focus-visible { outline: 2px solid #293e53; outline-offset: 4px; }
     </style>
     <link rel="stylesheet" href="css/acessibilidade.css">
 </head>
@@ -415,17 +312,22 @@
     </div>
 
     <!-- XS -->
-    <img
-      usemap="#map-xs"
-      class="visible-xs"
-      src="img/screen.png"
-      width="650"
-      height="1218"
-      orgWidth="650"
-      orgHeight="1218"
-      alt="Eletro Assistec Coelho: assistência técnica especializada para máquinas de lavar, lava e seca e secadoras. Links para orçamento e Facebook."
-      style="width: 100% !important; height: auto !important"
-    />
+    <picture class="visible-xs">
+      <source srcset="img/screen.webp" type="image/webp">
+      <img
+        usemap="#map-xs"
+        class="visible-xs"
+        src="img/screen.png"
+        width="649"
+        height="1217"
+        data-map-width="650"
+        data-map-height="1218"
+        fetchpriority="high"
+        loading="eager"
+        alt="Eletro Assistec Coelho: assistência técnica especializada para máquinas de lavar, lava e seca e secadoras. Links para orçamento e Facebook."
+        style="width: 100% !important; height: auto !important"
+      />
+    </picture>
     <map id="map-xs" name="map-xs">
       <area
         alt="Solicitar orçamento pelo WhatsApp (abre em nova aba)"
@@ -454,8 +356,6 @@
       src="img/blank-650.png"
       width="650"
       height="1373"
-      orgWidth="650"
-      orgHeight="1373"
       alt="Eletro Assistec Coelho: assistência técnica especializada para máquinas de lavar, lava e seca e secadoras. Links para orçamento e Facebook."
     />
     <map id="map-sm" name="map-sm">
@@ -495,8 +395,6 @@
       src="img/blank-1024.png"
       width="1024"
       height="2155"
-      orgWidth="1024"
-      orgHeight="2155"
       alt="Eletro Assistec Coelho: assistência técnica especializada para máquinas de lavar, lava e seca e secadoras. Links para orçamento e Facebook."
     />
     <map id="map-lg" name="map-lg">
@@ -561,51 +459,5 @@
       </nav>
     </footer>
 
-    <script
-      src="https://code.jquery.com/jquery-1.12.3.min.js"
-      integrity="sha256-aaODHAgvwQW1bFOGXMeX+pC4PZIPsvn2h1sArYOhgXQ="
-      crossorigin="anonymous"
-    ></script>
-    <script src="js/jquery.rwdImageMaps.min.js"></script>
-    <script src="js/jquery.jcarousel.min.js"></script>
-    <script src="js/jquery.maskedinput.min.js"></script>
-    <script src="vendor/fancybox/jquery.fancybox.pack.js"></script>
-    <link rel="stylesheet" href="vendor/fancybox/jquery.fancybox.css" />
-    <script>
-      $(document).ready(function (e) {
-        $('[type="tel"]')
-          .focusout(function () {
-            var p, e;
-            e = $(this);
-            e.unmask();
-            p = e.val().replace(/\D/g, '');
-            if (p.length > 10) {
-              e.mask('(99) 99999-999?9');
-            } else {
-              e.mask('(99) 9999-9999?9');
-            }
-          })
-          .trigger('focusout');
-
-        $('[rel="fancybox"]').fancybox();
-        $('img[usemap]').rwdImageMaps();
-
-        $('.jcarousel')
-          .on('jcarousel:reload jcarousel:create', function () {
-            var carousel = $(this),
-              width = carousel.innerWidth();
-            if (width >= 900) {
-              width = width / 5;
-            } else {
-              width = width / 4;
-            }
-            carousel.jcarousel('items').css('width', Math.ceil(width) + 'px');
-          })
-          .jcarousel({ wrap: 'circular' });
-
-        $('.jcarousel-control-prev').jcarouselControl({ target: '-=1' });
-        $('.jcarousel-control-next').jcarouselControl({ target: '+=1' });
-      });
-    </script>
   </body>
 </html>

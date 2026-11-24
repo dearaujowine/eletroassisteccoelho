@@ -6,14 +6,17 @@ Site estático de assistência técnica para máquinas de lavar convencionais, l
 
 `index.html` mantém as artes, dimensões, coordenadas dos mapas e identidade visual. Os acréscimos incluem metadados de SEO, dados estruturados, links de conteúdo e melhorias no acesso ao contato. O formulário conserva o envio GET para o WhatsApp e recebeu instruções, contraste e controles maiores. As áreas clicáveis têm descrições acessíveis.
 
-As imagens `img/screen.png`, `img/screen-650.png` e `img/screen-1024.png` são as fontes das artes. Os fundos de tablet e desktop possuem versões WebP sem perda de pixels, selecionadas por `image-set`, com fallback PNG. O arquivo mobile e as imagens transparentes dos mapas foram preservados. As cópias com sufixos de backup não são referenciadas pelo HTML.
+As imagens `img/screen.png`, `img/screen-650.png` e `img/screen-1024.png` são as fontes das artes. Todas possuem versões WebP sem perda de pixels: o mobile usa `picture`, e os fundos de tablet e desktop usam `image-set`, com fallback PNG. Os PNGs originais e as imagens transparentes dos mapas foram preservados. As cópias com sufixos de backup não são referenciadas pelo HTML.
 
 Depois de editar as artes no Canva, atualize as variantes WebP; caso contrário, navegadores modernos continuarão mostrando a arte anterior. Mantenha o conteúdo dos três tamanhos consistente com os serviços atuais. Ao mudar posições ou dimensões, confira as coordenadas dos mapas clicáveis.
 
 ```sh
+cwebp -quiet -lossless -exact -z 9 img/screen.png -o img/screen.webp
 cwebp -quiet -lossless -exact -z 9 img/screen-650.png -o img/screen-650.webp
 cwebp -quiet -lossless -exact -z 9 img/screen-1024.png -o img/screen-1024.webp
 ```
+
+`js/mapas-responsivos.js` ajusta os oito links das artes ao tamanho exibido, sem jQuery. O arquivo é carregado com `defer` e acompanha carregamento, redimensionamento e troca de breakpoint. Na imagem mobile, `width`/`height` indicam as dimensões reais do arquivo e `data-map-width`/`data-map-height` conservam a base das coordenadas originais. Os plugins antigos permanecem no repositório, mas não são carregados pelo site.
 
 ## Páginas internas
 
@@ -32,7 +35,7 @@ Os conteúdos são organizados por dúvidas e situações, sem separar máquinas
 
 Os textos estão diretamente no HTML. Os artigos incluem sumário, links relacionados, contato e metadados próprios. A navegação interna e o caminho de navegação levam ao índice de dúvidas. As orientações técnicas gerais citam fontes oficiais dos fabricantes; não substituem o manual específico ou a avaliação do equipamento.
 
-`css/conteudos.css` usa seletores isolados: `.content-page` nas páginas internas e `.home-content-links` nos links do rodapé da home. Não substitui os estilos da página inicial. Nenhuma nova biblioteca JavaScript é necessária para os conteúdos.
+`css/conteudos.css` usa seletores `.content-page`, isolados nas páginas internas. A home mantém os estilos do seu rodapé no próprio HTML e não baixa a folha de estilos dos artigos. Nenhuma biblioteca JavaScript é necessária para os conteúdos.
 
 `css/acessibilidade.css` é carregado por último nas doze páginas HTML, incluindo a página 404. Reúne os ajustes de foco, contraste, tamanho dos controles e preferências de exibição. As mudanças são feitas no HTML e no CSS, sem uma nova dependência JavaScript.
 
@@ -134,7 +137,9 @@ Estas etapas dependem do domínio publicado e das contas externas; não foram ex
 7. Manter o Perfil da Empresa no Google como atendimento por área de serviço, sem endereço público de recepção. Conferir telefone, serviços, cidade, fotos e horários reais. Avaliações devem vir de clientes reais.
 8. Acompanhar consultas, páginas indexadas, visitas e contatos. O identificador existente de Google Ads não define sozinho eventos de conversão. Para medir WhatsApp e ligações, usar os identificadores de medição/conversão da conta antes de configurar eventos; cliques não equivalem a reparos contratados.
 
-### Situação pública observada em 2026-11-23
+### Diagnóstico público inicial de 2026-11-23
+
+Este registro antecede o relatório PageSpeed das 20h12 descrito abaixo; não representa necessariamente a publicação atual das páginas internas.
 
 As respostas públicas indicam **GitHub Pages atrás da Cloudflare**: os cabeçalhos identificam Cloudflare e o corpo da página 404 identifica GitHub Pages. O repositório configurado localmente é `dearaujowine/eletroassisteccoelho` no GitHub. Isso não confirma a branch ou pasta selecionada para publicação; conferir em Settings → Pages.
 
@@ -150,7 +155,28 @@ As respostas públicas indicam **GitHub Pages atrás da Cloudflare**: os cabeça
 
 Requisições HEAD automatizadas receberam HTTP 403; requisições GET com identificação de navegador conseguiram acessar a home e o robots. Isso não prova bloqueio do Googlebot ou do OAI-SearchBot. Conferir os eventos e regras da Cloudflare para robôs verificados antes de alterar a proteção.
 
-Os arquivos novos ainda precisam ser publicados. Não houve push, alteração de DNS, ajuste no painel da Cloudflare ou envio ao IndexNow nesta implementação. Após publicar, conferir o robots efetivamente entregue e limpar o cache necessário. O servidor de testes permanece sob controle do proprietário.
+Naquele diagnóstico, os arquivos novos ainda precisavam ser publicados. Não houve push, alteração de DNS, ajuste no painel da Cloudflare ou envio ao IndexNow por esta implementação. Após cada publicação, conferir o robots efetivamente entregue e limpar o cache necessário. O servidor de testes permanece sob controle do proprietário.
+
+### PageSpeed: revisão de 2026-11-23
+
+O [relatório enviado pelo proprietário](https://pagespeed.web.dev/analysis/https-eletroassisteccoelho-com-br/lrbt12ymarq3btn5xbzjsv?form_factor=mobile), coletado às 20h12 de Brasília com Lighthouse 13.6.0, já analisa a home atualizada. No mobile: desempenho **80**, acessibilidade **96**, boas práticas **100** e SEO **100**. FCP de 2,6 s, LCP de 4,0 s, bloqueio total de 90 ms e CLS de 0. São resultados de laboratório anteriores às correções abaixo, não notas da versão local. No desktop, o relatório não conseguiu calcular LCP nem a nota de desempenho.
+
+Correções locais:
+
+- Imagem mobile em WebP sem perda: 118.388 → 48.170 bytes, redução de 59,3%, verificada por comparação de pixels. As três artes WebP correspondem aos PNGs atuais.
+- Imagem inicial com `fetchpriority="high"` e preloads condicionados ao tamanho da tela, conforme a [orientação de otimização de LCP](https://web.dev/articles/optimize-lcp). Não usar carregamento tardio na arte inicial.
+- Removidos do carregamento jQuery, carrossel, máscara de telefone, Fancybox e o antigo plugin de mapas. O pequeno script local conserva os mapas responsivos; estilos de componentes ausentes também foram retirados.
+- Eliminada a requisição de `conteudos.css` na home. A folha de acessibilidade continua sendo aplicada antes da primeira pintura para evitar conteúdo sem os estilos necessários.
+- Texto do formulário em `#102c3b` sobre o azul original `#00a3da`: contraste de 5,02:1, acima dos 4,5:1 exigidos pela auditoria. Arte, fundo e layout preservados.
+- Metadados da página de dúvidas sincronizados com seu título e sua descrição atuais.
+
+Pendências externas identificadas no relatório:
+
+- **Cache:** os arquivos próprios eram entregues com quatro horas de cache no navegador. A [auditoria recomenda pelo menos 30 dias](https://developer.chrome.com/docs/performance/insights/cache). Antes de aumentar o prazo na hospedagem/Cloudflare, adotar URLs versionadas para os arquivos que mudam; apagar o cache da CDN não limpa uma cópia ainda válida no navegador do visitante. Não aplicar cache longo indiscriminadamente ao HTML, sitemap e robots.
+- **Google Ads:** os 59 KiB classificados como JavaScript não utilizado pertencem ao `gtag.js`, mantido com o identificador original. O código é do Google; remover ou adiar a medição exige avaliar o impacto nos dados da campanha.
+- **Cloudflare:** o aviso de 10 KiB de JavaScript legado vem do beacon de Web Analytics, ausente do código local. A Cloudflare documenta sua [injeção automática](https://developers.cloudflare.com/speed/observatory/rum-beacon/); eventual desativação é uma decisão sobre a coleta de métricas no painel, não uma correção neste HTML.
+
+Validação local: conferência visual em Chrome nos tamanhos desktop e mobile, coordenadas/destinos dos oito links e formulário preservados, teste do redimensionamento dos mapas com e sem `ResizeObserver`, sintaxe JavaScript e `scripts/seo.py check`. A prévia por arquivo não mede a rede nem o cache da hospedagem. Publicar as alterações e executar uma nova análise mobile e desktop para obter as notas posteriores; não há garantia de nota 100 ou de posicionamento nos buscadores.
 
 ## Acessibilidade
 
