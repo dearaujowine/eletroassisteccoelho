@@ -50,6 +50,8 @@ A Eletro Assistec Coelho realiza visita e orçamento gratuitos em Balneário Cam
 
 Você não precisa escolher entre consertar e substituir antes de solicitar o orçamento. Primeiro, envie a marca, o modelo e o problema observado. Saiba [como combinar a visita técnica](https://eletroassisteccoelho.com.br/visita-tecnica-gratuita.html).
 
+Conheça nosso serviço de [conserto de máquinas de lavar roupa em Balneário Camboriú](https://eletroassisteccoelho.com.br/conserto-de-maquina-de-lavar-balneario-camboriu.html) para organizar essa avaliação e entender o atendimento.
+
 ## Conte com a Eletro Assistec Coelho
 
 Assistência técnica especializada em Balneário Camboriú, com visita e orçamento gratuitos. Conte o que sua lavadora ou secadora precisa e combine o atendimento no local.

@@ -68,6 +68,8 @@ Você pode falar diretamente com a equipe. Envie a marca, o modelo e uma descri�
 
 Os conteúdos ajudam a entender e descrever o sintoma. A avaliação no local identifica o serviço necessário para o seu equipamento.
 
+Para agendar uma avaliação, conheça o serviço de [conserto de máquina de lavar roupa em Balneário Camboriú](https://eletroassisteccoelho.com.br/conserto-de-maquina-de-lavar-balneario-camboriu.html), com atendimento no local e orçamento gratuito.
+
 ## Conte com a Eletro Assistec Coelho
 
 Assistência técnica especializada em Balneário Camboriú, com visita e orçamento gratuitos. Conte o que sua lavadora ou secadora precisa e combine o atendimento no local.

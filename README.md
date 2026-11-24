@@ -22,6 +22,7 @@ python3 scripts/seo.py check
 
 Os conteúdos são organizados por dúvidas e situações, sem separar máquinas de lavar e lava e seca em páginas de catálogo:
 
+- `conserto-de-maquina-de-lavar-balneario-camboriu.html`: página de contratação para conserto de máquinas de lavar roupa em Balneário Camboriú, reunindo lavadoras convencionais e lava e seca, sintomas atendidos, marcas, visita, orçamento e contato.
 - `servicos.html`: apresentação da empresa, serviços, equipamentos, marcas e compromisso com o cliente.
 - `duvidas-e-orientacoes.html`: índice de oito conteúdos, organizado por sintomas, cuidados e dúvidas sobre o atendimento.
 - `manutencao-e-higienizacao.html`: manutenção preventiva e corretiva, limpeza e higienização.
@@ -77,9 +78,11 @@ A voz dos textos é profissional, direta e próxima: explica como a equipe pode 
 
 O site publicado continua estático, sem código de servidor. Edite os HTMLs diretamente. Alterações nas artes, CSS ou JavaScript exigem regenerar os recursos com `scripts/assets.py generate` antes de publicar. Ao mudar telefone ou dados da empresa, atualize também os metadados e os blocos JSON-LD de todas as páginas.
 
-O sitemap contém onze URLs: a home, a apresentação dos serviços, o índice de dúvidas e oito conteúdos. Ao adicionar páginas, inclua links de navegação e atualize `sitemap.xml`. O `robots.txt` permite o rastreamento e aponta para o sitemap. Depois da publicação, confira a versão entregue pela Cloudflare e envie o sitemap aos mecanismos de busca.
+O sitemap contém doze URLs: a home, a página de conserto em Balneário Camboriú, a apresentação dos serviços, o índice de dúvidas e oito conteúdos. Ao adicionar páginas, inclua links de navegação e atualize `sitemap.xml`. O `robots.txt` permite o rastreamento e aponta para o sitemap. Depois da publicação, confira a versão entregue pela Cloudflare e envie o sitemap aos mecanismos de busca.
 
 Os dados estruturados identificam a empresa como `Organization`, sem inventar endereço comercial, e relacionam as páginas ao `WebSite`. A cidade está associada a Santa Catarina e ao Brasil, e o contato identifica o atendimento ao cliente em português. A descrição e o slogan da empresa são consistentes em todas as páginas. A home descreve o conjunto de serviços de assistência técnica. Os artigos incluem `WebPage` e `BreadcrumbList`; o índice usa `CollectionPage` com uma `ItemList` dos oito assuntos. Não há avaliações ou datas de publicação artificiais. Cada página tem URL canônica e metadados de compartilhamento próprios.
+
+A página de conserto concentra a intenção de contratar o serviço na cidade, com título e H1 próprios e dados `Service` ligados à empresa, à página e à área atendida. A navegação, o rodapé da home e os links contextuais dos artigos levam até ela. As páginas de sintomas continuam respondendo às dúvidas específicas, sem criar páginas duplicadas por marca ou tipo de lavadora.
 
 O identificador Google Ads existente, `AW-932054382`, foi preservado. Não foram criados identificadores de Analytics nem rótulos de conversão.
 
@@ -95,7 +98,7 @@ O Google informa que `llms.txt` não melhora nem prejudica o posicionamento na b
 
 ### Arquivos para agentes
 
-`llms.txt` contém um resumo da empresa, serviços, marcas, slogan e um índice das onze versões `*.html.md`. Cada versão textual deriva do HTML correspondente, mantém as fontes e informa a URL canônica. Os HTMLs apontam para essas versões por `rel="alternate"` e para o índice por `rel="describedby"`. O sitemap lista somente as páginas HTML canônicas.
+`llms.txt` contém um resumo da empresa, serviços, marcas, slogan e um índice das doze versões `*.html.md`. Cada versão textual deriva do HTML correspondente, mantém as fontes e informa a URL canônica. Os HTMLs apontam para essas versões por `rel="alternate"` e para o índice por `rel="describedby"`. O sitemap lista somente as páginas HTML canônicas.
 
 O arquivo vazio `.nojekyll` mantém a publicação estática no GitHub Pages, evitando que o Jekyll transforme os arquivos Markdown. Ele precisa estar na raiz da pasta publicada, junto de `index.html` e `CNAME`. Os scripts Python são ferramentas locais de manutenção, não código executado pelo servidor.
 
@@ -108,7 +111,7 @@ python3 scripts/seo.py check
 
 O gerador de SEO não altera os HTMLs, o sitemap ou as datas. O verificador confere navegação, âncoras, referências locais (incluindo `srcset`), JSON-LD, metadados, arquivos usados pelo CSS, permissões do robots e sincronização das versões textuais. Também verifica os recursos versionados, o CSS inline, idioma, zoom permitido, destinos dos atalhos, hierarquia dos títulos, rótulos, descrições dos mapas e referências ARIA. Ele não sobe um servidor nem publica arquivos.
 
-O `lastmod` do sitemap corresponde à alteração relevante do conteúdo ou dos metadados, não à data de cada execução. Atualize apenas a entrada da página efetivamente alterada. As onze entradas refletem as alterações de conteúdo e dados estruturados em 2026-11-23.
+O `lastmod` do sitemap corresponde à alteração relevante do conteúdo ou dos metadados, não à data de cada execução. Atualize apenas a entrada da página efetivamente alterada. A página de conserto e as páginas que receberam links contextuais têm `lastmod` em 2026-11-24. As demais conservam a data anterior; alterações apenas na navegação e no rodapé não avançam essa data.
 
 ### IndexNow após publicar
 
@@ -128,7 +131,7 @@ Antes do envio, o comando confere a chave publicada, o status HTTP, a URL canôn
 
 Estas etapas dependem do domínio publicado e das contas externas; não foram executadas pelo script local:
 
-1. Confirmar no Google Search Console e no Bing Webmaster Tools o acesso ao domínio, enviar o sitemap e verificar a indexação das onze URLs. A verificação pode ser feita por DNS ou pelo arquivo/meta fornecido por cada serviço; não criar tokens fictícios.
+1. Confirmar no Google Search Console e no Bing Webmaster Tools o acesso ao domínio, enviar o sitemap e verificar a indexação das doze URLs. A verificação pode ser feita por DNS ou pelo arquivo/meta fornecido por cada serviço; não criar tokens fictícios.
 2. Conferir se HTTP e `www` redirecionam para `https://eletroassisteccoelho.com.br/`, preservando o caminho. Conferir também a consolidação de `/index.html` com `/`. A configuração depende da hospedagem; não há regra genérica `_redirects` ou `.htaccess` ativa neste repositório.
 3. Publicar `404.html` na raiz usada pelo GitHub Pages e conferir sua resposta HTTP **404** em um caminho inexistente. Seus links absolutos funcionam mesmo em URLs aninhadas. Ela tem `noindex` e está fora do sitemap. Não redirecionar todos os erros para a home.
 4. Conferir o `robots.txt` realmente entregue pela hospedagem/CDN e as regras de firewall. A regra local permite todos os robôs. `OAI-SearchBot` atende à busca do ChatGPT; `GPTBot` é um controle independente para treinamento. O `llms.txt` não concede nem revoga essas permissões.
@@ -186,7 +189,7 @@ Validação local: conferência visual em Chrome nos tamanhos desktop e mobile, 
 - A home não tem folhas de estilo externas. O CSS de acessibilidade é gerado no HTML, mantendo os estilos disponíveis desde a primeira pintura e sem duplicar a manutenção manual.
 - CSS, JavaScript e artes usados pelo site recebem nomes com hash de conteúdo em `assets/`. Uma alteração gera outra URL, evitando reaproveitar a versão anterior do recurso. Uma geração repetida sem alterações mantém os mesmos nomes.
 
-`scripts/assets.py generate` requer Python 3, ImageMagick (`magick`) e libwebp (`cwebp`) na máquina de edição. O comando cria as versões PNG/WebP, atualiza os caminhos nas doze páginas e incorpora o CSS da home. `assets/manifest.json` relaciona fontes e saídas. `scripts/assets.py check` detecta fontes alteradas, arquivos modificados e referências/estilos inline fora de sincronia. O `scripts/seo.py check` já executa essa conferência. Publique os HTMLs e a pasta `assets/` juntos; não edite os arquivos com hash manualmente. Versões antigas são mantidas para páginas ainda em cache.
+`scripts/assets.py generate` requer Python 3, ImageMagick (`magick`) e libwebp (`cwebp`) na máquina de edição. O comando cria as versões PNG/WebP, atualiza os caminhos nas treze páginas HTML e incorpora o CSS da home. `assets/manifest.json` relaciona fontes e saídas. `scripts/assets.py check` detecta fontes alteradas, arquivos modificados e referências/estilos inline fora de sincronia. O `scripts/seo.py check` já executa essa conferência. Publique os HTMLs e a pasta `assets/` juntos; não edite os arquivos com hash manualmente. Versões antigas são mantidas para páginas ainda em cache.
 
 ### Regra de cache preparada para Cloudflare
 

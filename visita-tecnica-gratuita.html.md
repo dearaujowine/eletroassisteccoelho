@@ -52,6 +52,8 @@ Além do conserto, realizamos [manutenção preventiva e corretiva, limpeza e hi
 
 Você pode descrever sua necessidade mesmo sem saber o nome do serviço. Nosso compromisso é oferecer soluções eficientes e atendimento profissional, com agilidade, qualidade e confiança. Conheça [a Eletro Assistec Coelho e seus serviços](https://eletroassisteccoelho.com.br/servicos.html).
 
+Se a sua máquina apresentou uma falha, veja o atendimento de [conserto de máquinas de lavar e lava e seca em Balneário Camboriú](https://eletroassisteccoelho.com.br/conserto-de-maquina-de-lavar-balneario-camboriu.html), com as marcas atendidas e as etapas até o orçamento.
+
 ## Conte com a Eletro Assistec Coelho
 
 Assistência técnica especializada em Balneário Camboriú, com visita e orçamento gratuitos. Conte o que sua lavadora ou secadora precisa e combine o atendimento no local.

@@ -39,6 +39,8 @@ Solicite uma avaliação no local. A Eletro Assistec Coelho atende máquinas de 
 
 No WhatsApp, informe também seu bairro para combinar a disponibilidade. O prazo do reparo depende da avaliação; você pode esclarecer essa questão durante o atendimento. Veja [o passo a passo da visita gratuita](https://eletroassisteccoelho.com.br/visita-tecnica-gratuita.html).
 
+O atendimento de [Conserto de máquinas de lavar e lava e seca](https://eletroassisteccoelho.com.br/conserto-de-maquina-de-lavar-balneario-camboriu.html) inclui a avaliação de falhas na secagem. Conheça as marcas atendidas e como solicitar a visita em Balneário Camboriú.
+
 A orientação sobre capacidade de lavagem e secagem foi consultada no guia oficial da LG indicado no texto. As demais observações ajudam a descrever o problema e não substituem a avaliação do equipamento.
 
 ## Conte com a Eletro Assistec Coelho

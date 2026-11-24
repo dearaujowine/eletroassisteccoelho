@@ -43,6 +43,8 @@ Se a situação continua depois de conferir as orientações de uso do seu model
 
 Em Balneário Camboriú, a Eletro Assistec Coelho atende diretamente no local, com visita e orçamento gratuitos. Veja [como funciona a visita](https://eletroassisteccoelho.com.br/visita-tecnica-gratuita.html). Se a dúvida for sobre investir no equipamento, confira também [o que comparar antes de consertar ou trocar](https://eletroassisteccoelho.com.br/consertar-ou-trocar.html).
 
+Para solicitar assistência técnica especializada, conheça nosso [conserto de máquinas de lavar em Balneário Camboriú](https://eletroassisteccoelho.com.br/conserto-de-maquina-de-lavar-balneario-camboriu.html) e as informações necessárias para agendar.
+
 As observações sobre programas e distribuição da carga foram consultadas nas orientações oficiais da Samsung indicadas no texto. Recursos e procedimentos variam por modelo; use o manual do seu equipamento.
 
 ## Conte com a Eletro Assistec Coelho
